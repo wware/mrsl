@@ -1,0 +1,105 @@
+# import yaml
+# import pprint
+# inf = open('table1.yaml')
+# pprint.pprint(yaml.safe_load(inf))
+---
+ervebo:
+  vaccine:
+    Ervebo (rVSV-ZEBOV-GP; V920; rVSVΔG-ZEBOV-GP)
+    Monovalent, expresses EBOV GP (Kikwit variant)
+  manufacturer:
+    - Merck
+    - NewLink Genetics
+    - PHAC (National Microbiology Laboratory in Winnipeg, Manitoba)
+  advantages:
+    - Only vaccine with proven clinical efficacy
+    - Rapid immunostimulatory properties
+      enable its use in an outbreak setting or
+      as an emergency postexposure prophylactic
+    - Single-dose approach eliminates the
+      need for patient follow-up
+    - Good safety profile, 2 SAEs reported
+      deemed related to the vaccine (febrile
+      reaction and anaphylaxis) that later
+      resolved
+    - Durable humoral immunity, strong
+      immune responses reported at least 2
+      years after vaccination
+    - Lower doses of vaccine needed than
+      adenovirus-based vaccines
+  disadvantages:
+    - Only targets EBOV, which was
+      responsible for the 2013–2016
+      outbreaks and more recent flare-ups
+    - Only licensed for adults >=18
+      years of age
+    - Reports of arthritis in a subset of
+      vaccinees associated with
+      increasing age and increased IgG
+      titers beyond 6 months
+    - Infectious virus found in synovial
+      joints of vaccinees suggests unlikely
+      but possible vaccine shedding/
+      secondary transmission
+    - Requires >=60  C storage
+      temperature; −60 C to −80 C
+      stability is 36 months, 2 C to 8 C
+      for no more than 2 weeks, room
+      temperature for no more than 4
+      hours
+  status:
+    - Licensed by US FDA and EMA
+    - Granted Breakthrough Therapy
+    - Designation by the US FDA and PRIME status by the EMA
+    - Phase III trials completed in Africa, the US, Canada, and Europe
+    - Expanded access protocols used in Guinea and in the DRC
+    - Tested in children older than or equal to 1 year (PREVAC),
+      women that later became pregnant, and HIV–positive individuals;
+      appears immunogenic and safe but still examining its suitability
+      in these populations
+    - Durability, antibody threshold of protection?
+    - Safety and immunogenicity in the immunocompromised and
+      pregnant/lactating women?
+zabdeno:
+  vaccine:
+    Zabdeno/Mvabea (Ad26.ZEBOV + heterologous MVA-BN-Filo boost)
+    Multivalent after second dose, Zabdeno expresses EBOV GP (Mayinga)
+    Mvabea expresses EBOV GP, SUDV GP, TAFV NP, and MARV GP
+  manufacturer:
+    - Johnson & Johnson (Janssen division)
+    - Bavarian Nordic
+  advantages:
+    - Approved for individuals 1 year and older
+    - Good safety profile, 2 SAEs reported deemed related to vaccine
+      (Miller Fisher syndrome and small fiber neuropathy) that later resolved
+    - Multivalent after second dose; targets EBOV, SUDV, and TAFV as well as
+      MARV (although, only indicated for EBOV)
+    - Replication deficiency eliminates
+      vaccine shedding concerns
+    - Multiple storage options:
+      - Ad26.EBOV −20 ̊C to −60 ̊C for 48 months and +2 to +8 ̊C for 12 months
+      - MVA-BN-Filo 20 ̊C to −60 ̊C for 42 months and +2 to +8 ̊C for 6 month
+  disadvantages:
+    - Lower predicted vaccine efficacy than Ervebo (approximately 53%)
+      based on stringent nonhuman primate bridging data
+    - Requires 2 doses (patient follow-up cause for concern)
+    - Not ideal for outbreak settings as 8 weeks must pass before the
+      second dose is administered
+    - High doses of vaccine required for immunogenicity compared to Ervebo
+    - Booster vaccination recommended 4 months post second dose
+    - Mvabea does not include immunogen targeting Bundibugyo
+      or Bombali ebolaviruses
+    - Data on cross-protection against non-EBOV or MARV does not exist
+    - Preexisting immunity to vector may reduce the effectiveness of the
+      vaccine
+  status:
+    - Licensed by EMA under exceptional circumstances
+    - Phase I/II/III trials completed in Europe, the US, and Africa
+    - Submitted dossier to the US FDA to request licensure using the
+      Animal Rule
+    - Submitting to WHO for EUAL
+    - Other vaccine combination/variants are being explored to enhance
+      immunogenicity/efficacy of Zabdeno and Mvabea
+    - Durability, antibody threshold of protection?
+    - Safety and immunogenicity in the immunocompromised and
+      pregnant/lactating women?
