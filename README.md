@@ -113,6 +113,14 @@ That said, people do like the idea, citing a few advantages over JSON-LD:
 
 ### Stuff about Prolog
 
+Prolog is a logic programming language associated with artificial
+intelligence and computational linguistics.
+
+Prolog has its roots in first-order logic and is intended primarily
+as a declarative programming language: the program logic is expressed
+in terms of relations, represented as facts and rules. A computation
+is initiated by running a query over these relations.
+
 * [Prolog overview](http://www.cs.toronto.edu/~bonner/courses/2014f/csc324/slides/prolog1.pdf)
 * [Prolog's Inference Engine](https://www.amzi.com/ExpertSystemsInProlog/02usingprolog.htm)
 * [More Prolog inference engine](http://www.cs.sjsu.edu/~pearce/modules/lectures/prolog/engine.htm)
@@ -134,10 +142,10 @@ can be manipulated with arithmetic and statistical methods. In computer
 science, code is knowledge representation, and can be rendered as either
 source code or as abstract syntax trees.
 
-Take a few simple papers from Pubmed. Find or create an ontology for the
-stuff in the papers. Rewrite the papers in Markdown. Show how to render
-a pretty PDF, and how to extract RDF, and what you can do with the RDF:
-represent the contents of the paper, extrapolate further conclusions, plan
+Take a few simple papers from PLoS or Pubmed. Find or create an ontology
+for the  stuff in the papers. Rewrite the papers in Markdown. Show how to
+render a pretty PDF, and how to extract RDF, and what you can do with the RDF.
+Represent the contents of the paper, extrapolate further conclusions, plan
 experiments, think about how the paper can interact with a related paper.
 Each paper is a graph or semantic network, and you can find equivalencies
 between the papers and notate them using the OWL operators.
@@ -152,11 +160,13 @@ had already been created by somebody else, and all I need to do is use theirs.
 ### Semantic spreadsheet
 
 This idea post-dates the authoring tool idea below, and may replace it
-entirely. We'll see.
+entirely. The idea here is that instead of writing a paper that some machine
+will autonoumously read and reason about, you're developing a tool that tries
+to extend a human user's reasoning capacity.
 
-Take an open-source spreadsheet. Maybe use pyspread since it targets the
-Python language, which already does a lot of the number-cruncing for the AI/ML
-space, and because I'm already familiar with Python.
+Take an open-source spreadsheet. Maybe use [Pyspread](https://pyspread.gitlab.io/)
+since it targets the Python language, which already does a lot of the
+number-cruncing for the AI/ML space, and because I'm already familiar with Python.
 
 Add whatever functions and macros and stuff would make it reasonable to use
 the spreadsheet to process semantic nets. When I say "process" what I mean
@@ -184,8 +194,24 @@ and treat that as a semantic subnet which you can then prod with tests.
 Start by forking Pyspread and figuring out a reasonable import process for
 RDF/Turtle. Also think about export.
 
-Should I be trying to somehow connect the spreadsheet with a Prolog interpreter?
-Maybe translate between CSV and Turtle and Prolog statements?
+You want to be able to mark some portion of the spreadsheet contents, either
+with the mouse, or by use of some kind of marker or highlight, and ideally
+could be done programmatically. You want to be able to export the selected
+portion and run it thru a translator that converts it from CSV to either Turtle
+or Prolog. This is presumably done with some kind of spreadsheet macro, which
+could then invoke the prolog interpreter or an RDF inference engine, do some
+work, and convert the results of that work back to CSV.
+
+The primary piece of work here is the translator between CSV and Turtle
+and Prolog. Most spreadsheets probably let you define a macro that could
+invoke the translator, or a shell script that invokes it. The shell script
+could then run prolog or Jena on the result, do some reasoning, and you could
+then translate the result back to CSV.
+
+Generally it's a great idea not to dig around inside other peoples' code such
+as Pyspread. If you can put some glue around it, like a translator, that is
+much better.
+
 
 ### Authoring tool
 
@@ -193,10 +219,29 @@ Try to describe and hopefully prototype an authoring tool for MRSL papers
 to ease the burden of creating them. No researcher will bother with any
 of this stuff if it adds any appreciable effort to authoring a paper. Like
 an IDE used in programming, the authoring tool should offer helpful feedback
-during the authoring process.
+during the authoring process. The authoring tool is essentially an IDE for
+writing academic papers with all these features. I should build the tool
+that I want for myself.
 
-The authoring tool is essentially an IDE for writing academic papers with all
-these features. I should build the tool that I want for myself.
+#### Floating cloud of nodes
+
+The stuff you put in your academic paper becomes part of the semantic net.
+Maybe the net is published in a separate file, and you use additional RDF pieces
+to represent comments or annotations or anchors for the paper to reference.
+
+Think about how to visualize a semantic net as a graph, and what that looks
+like at different zoom levels, and how to keep it useful and purposeful. And
+there can be links from the paper into different points in the graph. And the
+graph can transform, like rotations in 4d space, where some parts get closer
+or farther away as your interests and priorities change.
+
+When you're viewing a net in this way, you can select a node and coerce its
+truth value, or you can highlight it so you can keep an eye on it. You can do
+bulk highlighting operations using something like a SQL/SPARQL query. And you
+can propagate changes across the net to see how things respond as you tinker
+with applying external stimuli.
+
+### Authoring tool components
 
 Given that Apache Jena is a big part, and Apache Jena is available in a Docker
 container, it probably makes sense to architect it as a collection of containers
@@ -245,6 +290,17 @@ same thing.
 
 At a minimum you want to do something involving an inference engine.
 This whole area warrants more thought.
+
+You can make computational models of all kinds of things, why not the
+elements of scientific reasoning? Why do those have to be semantic nets?
+Why not some other thing?
+
+* Generate hypothesis
+* Generate predictions
+* Design experiments to test predictions
+* Run experiments and observe results
+* Update state of knowledge
+* Repeat cycle
 
 ### An example "paper"
 

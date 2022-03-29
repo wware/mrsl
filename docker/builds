@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker build -t mtsl-base -f Dockerfile . || exit 1
-docker build -t mtsl-aima -f Dockerfile.aima . || exit 1
-docker build -t mtsl-prolog -f Dockerfile.prolog . || exit 1
+docker build -t mrsl-base -f Dockerfile . || exit 1
+docker build -t mrsl-aima -f Dockerfile.aima . || exit 1
+docker build -t mrsl-prolog -f Dockerfile.prolog . || exit 1

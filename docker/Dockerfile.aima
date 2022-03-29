@@ -1,4 +1,4 @@
-FROM mtsl-base:latest
+FROM mrsl-base:latest
 
 # RUN apk add libsm6 libxext6 libxrender-dev
 # RUN apk add libxrender-dev git

@@ -6,13 +6,13 @@ Random useful little docker commands
 docker image ls
 docker ps -a
 docker system prune
-docker image rm mtsl
+docker image rm mrsl
 ```
 
 How to spin up a container, run a command in a particular directory, and make it go away
 
 ```
-docker run --rm -it -w /aima-python mtsl-aima python3 /usr/local/bin/py.test
+docker run --rm -it -w /aima-python mrsl-aima python3 /usr/local/bin/py.test
 
                        ^            ^         ^
                        |            |         |

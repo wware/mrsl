@@ -1,4 +1,4 @@
-FROM mtsl-base:latest
+FROM mrsl-base:latest
 
 RUN apt install -y swi-prolog swi-prolog-doc
 COPY test.pl /
