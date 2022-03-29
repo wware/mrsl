@@ -232,14 +232,20 @@ to represent comments or annotations or anchors for the paper to reference.
 Think about how to visualize a semantic net as a graph, and what that looks
 like at different zoom levels, and how to keep it useful and purposeful. And
 there can be links from the paper into different points in the graph. And the
-graph can transform, like rotations in 4d space, where some parts get closer
-or farther away as your interests and priorities change.
+graph can transform, where some parts get closer or farther away as your
+interests and priorities change.
 
-When you're viewing a net in this way, you can select a node and coerce its
-truth value, or you can highlight it so you can keep an eye on it. You can do
-bulk highlighting operations using something like a SQL/SPARQL query. And you
-can propagate changes across the net to see how things respond as you tinker
-with applying external stimuli.
+* https://observablehq.com/@d3/mobile-patent-suits
+
+When you're viewing a net in this way, you can select a node and manually set
+its probability or its truth value, or you can highlight it so you can keep an
+eye on it. You can do bulk highlighting operations using something like a
+SQL/SPARQL query. And you can propagate changes across the net to see how
+things respond as you tinker with applying external stimuli.
+
+That's all lovely but potentially very hard to do. You invest in a lot of
+pretty work on graphics and it's not clear that it buys you a lot of real value.
+Thinking about that led me to the spreadsheet idea above.
 
 ### Authoring tool components
 
