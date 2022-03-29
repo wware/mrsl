@@ -111,10 +111,17 @@ That said, people do like the idea, citing a few advantages over JSON-LD:
 * Comments
 * More concise and more readable
 
+### Stuff about Prolog
+
+* [Prolog overview](http://www.cs.toronto.edu/~bonner/courses/2014f/csc324/slides/prolog1.pdf)
+* [Prolog's Inference Engine](https://www.amzi.com/ExpertSystemsInProlog/02usingprolog.htm)
+* [More Prolog inference engine](http://www.cs.sjsu.edu/~pearce/modules/lectures/prolog/engine.htm)
+* [Computation in predicate logic](https://www.cs.rochester.edu/u/nelson/courses/csc_173/predlogic/computation.html)
+* [Logic Programming course notes](https://athena.ecs.csus.edu/~mei/logicp/LogicP_StudyGuide.pdf)
 
 ## Where to go with all this stuff
 
-This wants to provide examples of how MTSL could be useful and valuable to
+This wants to provide examples of how MRSL could be useful and valuable to
 somebody publishing a paper, i.e. make it worth their while to mark up their
 paper with semantics that would allow a machine to read the paper's salient
 content and do some kind of interesting processing on it. This might mean
@@ -142,9 +149,47 @@ I would probably need to just work with some small fragment or section of
 a paper. I would also hope to discover that most of the relevant ontology
 had already been created by somebody else, and all I need to do is use theirs.
 
+### Semantic spreadsheet
+
+This idea post-dates the authoring tool idea below, and may replace it
+entirely. We'll see.
+
+Take an open-source spreadsheet. Maybe use pyspread since it targets the
+Python language, which already does a lot of the number-cruncing for the AI/ML
+space, and because I'm already familiar with Python.
+
+Add whatever functions and macros and stuff would make it reasonable to use
+the spreadsheet to process semantic nets. When I say "process" what I mean
+is you can assign RDF nodes to cells, and then you can assign probabilities
+or truth values to particular nodes and propagate to see what happens. You're
+doing Prolog-like operations in the semantic net, with all the ease-of-use
+benefits you get with a spreadsheet.
+
+So your spreadsheet can be a mix of normal spreadsheet stuff (whatever your
+problem domain would normally include for numeric processing) and the
+semantic stuff. You can apply reasoning and OWL and all that to the semantic
+piece.
+
+You can highlight nodes in different colors, do searches, maybe attach
+comments to nodes, whatever.
+
+You can import and export chunks of RDF along with the normal spreadsheet
+things. You can import a subchunk into an existing spreadsheet. You can group
+a bunch of cells and say, "This represents Bob's theory that X implies Y"
+and treat that as a semantic subnet which you can then prod with tests.
+
+* [Pyspread website](https://pyspread.gitlab.io/)
+* [Paper on RDF123](https://ebiquity.umbc.edu/_file_directory_/papers/370.pdf)
+
+Start by forking Pyspread and figuring out a reasonable import process for
+RDF/Turtle. Also think about export.
+
+Should I be trying to somehow connect the spreadsheet with a Prolog interpreter?
+Maybe translate between CSV and Turtle and Prolog statements?
+
 ### Authoring tool
 
-Try to describe and hopefully prototype an authoring tool for MTSL papers
+Try to describe and hopefully prototype an authoring tool for MRSL papers
 to ease the burden of creating them. No researcher will bother with any
 of this stuff if it adds any appreciable effort to authoring a paper. Like
 an IDE used in programming, the authoring tool should offer helpful feedback
@@ -180,13 +225,11 @@ Fuseki is a web server that handles SPARQL queries.
 
 https://github.com/jamiemcg/Remarkable for Markdown editing
 
-#### LMT
+#### noweb.py
 
-https://github.com/driusan/lmt
-
-lmt is a tool for extracting text from the code blocks in markdown files. It
-allows programmers to write in a [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
-style using Markdown as the source language.
+noweb.py is a tool for extracting text from the code blocks in markdown files. It
+allows you to write code in a [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
+style. I've tweaked it to accept Markdown as an input language.
 
 #### Pandoc
 
