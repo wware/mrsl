@@ -136,6 +136,10 @@ content and do some kind of interesting processing on it. This might mean
 validating the paper's conclusion, particularly if new data appears that
 wasn't available at the time of publication.
 
+> You could think of this as doing a set of unit tests against a hypothesis.
+  You re-run the unit tests when conditions change, e.g. when new
+  experimental data becomes available.
+
 Using Turtle and RDF is one useful form of knowledge representation but
 certainly not the only one. Numerical data can be collected in a lab and
 can be manipulated with arithmetic and statistical methods. In computer
@@ -211,122 +215,3 @@ then translate the result back to CSV.
 Generally it's a great idea not to dig around inside other peoples' code such
 as Pyspread. If you can put some glue around it, like a translator, that is
 much better.
-
-
-### Authoring tool
-
-Try to describe and hopefully prototype an authoring tool for MRSL papers
-to ease the burden of creating them. No researcher will bother with any
-of this stuff if it adds any appreciable effort to authoring a paper. Like
-an IDE used in programming, the authoring tool should offer helpful feedback
-during the authoring process. The authoring tool is essentially an IDE for
-writing academic papers with all these features. I should build the tool
-that I want for myself.
-
-#### Floating cloud of nodes
-
-The stuff you put in your academic paper becomes part of the semantic net.
-Maybe the net is published in a separate file, and you use additional RDF pieces
-to represent comments or annotations or anchors for the paper to reference.
-
-Think about how to visualize a semantic net as a graph, and what that looks
-like at different zoom levels, and how to keep it useful and purposeful. And
-there can be links from the paper into different points in the graph. And the
-graph can transform, where some parts get closer or farther away as your
-interests and priorities change.
-
-* https://observablehq.com/@d3/mobile-patent-suits
-
-When you're viewing a net in this way, you can select a node and manually set
-its probability or its truth value, or you can highlight it so you can keep an
-eye on it. You can do bulk highlighting operations using something like a
-SQL/SPARQL query. And you can propagate changes across the net to see how
-things respond as you tinker with applying external stimuli.
-
-That's all lovely but potentially very hard to do. You invest in a lot of
-pretty work on graphics and it's not clear that it buys you a lot of real value.
-Thinking about that led me to the spreadsheet idea above.
-
-### Authoring tool components
-
-Given that Apache Jena is a big part, and Apache Jena is available in a Docker
-container, it probably makes sense to architect it as a collection of containers
-that are orchestrated using docker-compose. So design it that way, and think
-about persistence and the need for mounted volumes. Also think about git
-integration.
-
-Let's look at the components involved.
-
-#### Apache Jena and Fuseki
-
-[Existing well-maintained docker containers](https://github.com/stain/jena-docker)
-
-These can import and export ontologies and semantic nets in a variety of
-formats (RDF/XML, N3/Turtle, JSON-LD) and with a little more work I can run
-Graphviz and produce Dot files, JPEG, or PNG.
-
-Jena should make ontologies easy to search and use, and provide easy integration
-with DBpedia, OWL, and other Linked Data resources.
-
-Fuseki is a web server that handles SPARQL queries.
-
-#### Graphviz, ImageMagick
-
-#### Remarkable
-
-https://github.com/jamiemcg/Remarkable for Markdown editing
-
-#### noweb.py
-
-noweb.py is a tool for extracting text from the code blocks in markdown files. It
-allows you to write code in a [literate programming](https://en.wikipedia.org/wiki/Literate_programming)
-style. I've tweaked it to accept Markdown as an input language.
-
-#### Pandoc
-
-### Reasoning tools
-
-So you get your paper written, and it's full of semantic markup, and now
-both humans and machines can understand its contents. What next?
-
-The humans will read the paper and think about where it fits in the
-larger scientific literature, what are its implications, how it relates
-to other current work, etc. You want the machines to do more or less the
-same thing.
-
-At a minimum you want to do something involving an inference engine.
-This whole area warrants more thought.
-
-You can make computational models of all kinds of things, why not the
-elements of scientific reasoning? Why do those have to be semantic nets?
-Why not some other thing?
-
-* Generate hypothesis
-* Generate predictions
-* Design experiments to test predictions
-* Run experiments and observe results
-* Update state of knowledge
-* Repeat cycle
-
-### An example "paper"
-
-One purpose of the present work is to write at least a first draft of a
-"paper" that employs a mix of ordinary text and semantic markup of some
-kind, and ideally, to demonstrate how this markup might be used to
-extract machine-comprehensible content from the paper and perform
-some kind of deduction or reasoning on it.
-
-> ### What is the current status, and what are some advantages and disadvantages, of the leading Ebola virus vaccines?
-> Thirteen EBOV vaccine candidates have entered human clinical trials with 5 progressing to
-post-Phase I clinical trials [8]. Strengths and weaknesses for each of the 5 platforms are sum-
-marized in Table 1. The most advanced vaccines in the United States and Europe include Ervebo (rVSV-EBOV), Zabdeno/Mvabea (Ad26-ZEBOV/MVA-BN-Filo), and cAd3-EBOZ
-(Fig 1). All 3 platforms use a viral vector, or a modified version of a harmless surrogate virus,
-to provoke an immune response. Key benefits of virus-vectored vaccines are their ability to
-deliver antigen specifically to target cells and to induce robust, long-lived immunity.
-> Ervebo, Zabdeno/Mvabea, and cAd3-EBOZ all express EBOV glycoprotein (GP) antigen to stimulate
-an immune response. GP is the sole surface protein of the EBOV virion and mediates attachment, fusion, and entry of target cells; thus, this protein serves as an attractive immunogen as
-it is readily recognized by the immune system and is the main target of the neutralizing anti-
-body response [9]. Some general disadvantages of virus vaccine vectors include manufacturing
-obstacles, cold chain requirements, and difficulty in adapting to new virus variants.
-
-Let's try to render Table 1 in Turtle.
